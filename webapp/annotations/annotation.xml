@@ -8,6 +8,28 @@
     <edmx:DataServices>
         <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="sap.fe.demo">
             <Annotations Target="cds_zfe_booking_analytics_000121.BookingType">
+                <Annotation Term="UI.Chart" Qualifier="FlightPriceByAirlineDonut">
+                    <Record>
+                       <PropertyValue Property="Title" String="Flight Cost By Airlines"/>
+                       <PropertyValue Property="MeasureAttributes">
+                           <Collection>
+                               <Record Type="UI.ChartMeasureAttributeType">
+                                   <PropertyValue Property="Measure" PropertyPath="FlightPrice"/>
+                                   <PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1"/>
+                               </Record>
+                           </Collection>
+                       </PropertyValue>
+                       <PropertyValue Property="DimensionAttributes">
+                           <Collection>
+                               <Record Type="UI.ChartDimensionAttributeType">
+                                   <PropertyValue Property="Dimension" PropertyPath="CarrierName"/>
+                                   <PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/>
+                               </Record>
+                           </Collection>
+                       </PropertyValue>
+                       <PropertyValue Property="ChartType" EnumMember="UI.ChartType/Donut"/>
+                    </Record>
+                </Annotation>
                 <Annotation Term="UI.SelectionFields">
                     <Collection>
                             <PropertyPath>CarrierID</PropertyPath>
